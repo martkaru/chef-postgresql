@@ -53,7 +53,7 @@ external_pid_file = '/var/run/postgresql/<%= node.postgresql.version -%>-main.pi
 
 # - Connection Settings -
 
-<% if not node.postgresql.listen_addresses.empty? %>
+<% unless node.postgresql.listen_addresses.empty? %>
 listen_addresses = '<%= node.postgresql.listen_addresses %>'
 <% else %>
 #listen_addresses = 'localhost'		# what IP address(es) to listen on;
