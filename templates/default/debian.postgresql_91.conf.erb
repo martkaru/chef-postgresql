@@ -165,8 +165,9 @@ wal_level = <%= node.postgresql.wal_level %>
 #wal_level = minimal			# minimal, archive, or hot_standby
 					# (change requires restart)
 <% end %>
-#fsync = on				# turns forced synchronization on or off
-#synchronous_commit = on		# synchronization level; on, off, or local
+
+fsync = <% node.postgresql.without_sync ? 'off' : 'on' %>				# turns forced synchronization on or off
+synchronous_commit = <% node.postgresql.without_sync ? 'off' : 'on' %>		# synchronization level; on, off, or local
 #wal_sync_method = fsync		# the default is the first option
 					# supported by the operating system:
 					#   open_datasync

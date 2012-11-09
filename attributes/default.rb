@@ -109,3 +109,5 @@ default[:postgresql][:hot_standby_feedback] = "off"
 # Role/Database Setup
 default[:postgreql][:setup_items] = [] # list of data bag names
 
+#syncs
+default[:postgresql][:without_sync] = false
